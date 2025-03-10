@@ -113,6 +113,7 @@ class Game:
         print(f'2!')
         time.sleep(1)
         print(f'1!')
+        time.sleep(1)
         p1board.clear()
         print(f"Now please be a dear and pass the screen to {p2name}")
         time.sleep(3)
@@ -137,6 +138,7 @@ class Game:
         print(f'2!')
         time.sleep(1)
         print(f'1!')
+        time.sleep(1)
         p2board.clear()
         p1turn = True
         while not self.game_over:
@@ -147,7 +149,32 @@ class Game:
                 winner = p2name
                 break
             if p1turn:
-                pass
+                print(f'Okay, {p1name} here is what you\'re working with...')
+                time.sleep(2)
+                p2board.print_board()
+                row = input(f'{p1name} pick a row! ')
+                col = input(f'Also a column! ')
+                time.sleep(3)
+                if p2board.shoot(row, col):
+                    print("BOOM YOU\'VE GOT A HIT")
+                else:
+                    print("Sorry, you missed")
+            else:
+                print(f'Okay, {p2name} here is what you\'re working with...')
+                time.sleep(2)
+                p1board.print_board()
+                row = input(f'{p2name} pick a row! ')
+                col = input(f'Also a column! ')
+                time.sleep(3)
+                if p1board.shoot(row, col):
+                    print("BOOM YOU\'VE GOT A HIT")
+                else:
+                    print("Sorry, you missed")
+        if winner == p1name:
+            print(f"Congratulations {p1name}, you have won the game!!!")
+        else:
+            print(f"Congratulations {p1name}, you have won the game!!!")
+        return
 
         
 
