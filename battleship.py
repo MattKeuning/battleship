@@ -124,11 +124,11 @@ class Game:
             length = int(input("What length would you like this ship to have (keep in mind you will set 4 ships: lengths 2-5) "))
             for i in range(length):
                 if h_or_v == 'v':
-                    p2board.show_ships[p1ship[0]+i][p1ship[1]] = 'S'
+                    p2board.show_ships[p2ship[0]+i][p2ship[1]] = 'S'
                     p2board.ships.append((p2ship[0]+i,p2ship[1]))
                 else:
-                    p2board.show_ships[p1ship[0]][p1ship[1]-i] = 'S'
-                    p2board.ships.append((p2ship[0],p1ship[1]-i))
+                    p2board.show_ships[p2ship[0]][p2ship[1]-i] = 'S'
+                    p2board.ships.append((p2ship[0],p2ship[1]-i))
             p2lengths.remove(length)
         print(f'Perfect! Here is what your board now looks like:')
         print(p2board.show_ships_on_board())
@@ -152,8 +152,8 @@ class Game:
                 print(f'Okay, {p1name} here is what you\'re working with...')
                 time.sleep(2)
                 p2board.print_board()
-                row = input(f'{p1name} pick a row! ')
-                col = input(f'Also a column! ')
+                row = row(input(f'{p1name} pick a row! '))
+                col = row(input(f'Also a column! '))
                 time.sleep(3)
                 if p2board.shoot(row, col):
                     print("BOOM YOU\'VE GOT A HIT")
@@ -163,8 +163,8 @@ class Game:
                 print(f'Okay, {p2name} here is what you\'re working with...')
                 time.sleep(2)
                 p1board.print_board()
-                row = input(f'{p2name} pick a row! ')
-                col = input(f'Also a column! ')
+                row = int(input(f'{p2name} pick a row! '))
+                col = int(input(f'Also a column! '))
                 time.sleep(3)
                 if p1board.shoot(row, col):
                     print("BOOM YOU\'VE GOT A HIT")
