@@ -100,8 +100,10 @@ class Game:
             for i in range(length):
                 if h_or_v == 'v':
                     p1board.show_ships[p1ship[0]+i][p1ship[1]] = 'S'
+                    p1board.ships.append((p1ship[0]+i,p1ship[1]))
                 else:
                     p1board.show_ships[p1ship[0]][p1ship[1]-i] = 'S'
+                    p1board.ships.append((p1ship[0],p1ship[1]-i))
             p1lengths.remove(length)
         print(f'Perfect! Here is what your board now looks like:')
         print(p1board.show_ships_on_board())
@@ -121,9 +123,11 @@ class Game:
             length = int(input("What length would you like this ship to have (keep in mind you will set 4 ships: lengths 2-5) "))
             for i in range(length):
                 if h_or_v == 'v':
-                    p2board.show_ships[p1ship[1]+i][p1ship[1]] = 'S'
+                    p2board.show_ships[p1ship[0]+i][p1ship[1]] = 'S'
+                    p2board.ships.append((p2ship[0]+i,p2ship[1]))
                 else:
-                    p2board.show_ships[p1ship[1]][p1ship[1]-i] = 'S'
+                    p2board.show_ships[p1ship[0]][p1ship[1]-i] = 'S'
+                    p2board.ships.append((p2ship[0],p1ship[1]-i))
             p2lengths.remove(length)
         print(f'Perfect! Here is what your board now looks like:')
         print(p2board.show_ships_on_board())
@@ -134,6 +138,7 @@ class Game:
         time.sleep(1)
         print(f'1!')
         p2board.clear()
+        p1turn = True
         while not self.game_over:
             if p1board.count == 14:
                 winner = p1name
@@ -141,6 +146,9 @@ class Game:
             elif p2board.count == 14:
                 winner = p2name
                 break
+            if p1turn:
+                pass
+
         
 
 
