@@ -57,7 +57,14 @@ class Board:
 
 class Game:
 
-    pass
+    def __init__(self):
+        self.game_over = False
+        self.player1 = None
+        self.player2 = None
+
+    def play(self):
+        while not self.game_over:
+            pass
 
 
 
