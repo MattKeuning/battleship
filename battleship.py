@@ -152,8 +152,8 @@ class Game:
                 print(f'Okay, {p1name} here is what you\'re working with...')
                 time.sleep(2)
                 p2board.print_board()
-                row = row(input(f'{p1name} pick a row! '))
-                col = row(input(f'Also a column! '))
+                row = int(input(f'{p1name} pick a row! ')) - 1
+                col = int(input(f'Also a column! ')) - 1
                 time.sleep(3)
                 if p2board.shoot(row, col):
                     print("BOOM YOU\'VE GOT A HIT")
@@ -163,13 +163,17 @@ class Game:
                 print(f'Okay, {p2name} here is what you\'re working with...')
                 time.sleep(2)
                 p1board.print_board()
-                row = int(input(f'{p2name} pick a row! '))
-                col = int(input(f'Also a column! '))
+                row = int(input(f'{p2name} pick a row! ')) - 1
+                col = int(input(f'Also a column! ')) - 1
                 time.sleep(3)
                 if p1board.shoot(row, col):
                     print("BOOM YOU\'VE GOT A HIT")
                 else:
                     print("Sorry, you missed")
+            if p1turn:
+                p1turn = False
+            else:
+                p1turn = True
         if winner == p1name:
             print(f"Congratulations {p1name}, you have won the game!!!")
         else:
