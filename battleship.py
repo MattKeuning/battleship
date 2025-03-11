@@ -146,7 +146,7 @@ class Game:
         print(f"Now please be a dear and pass the screen to {p2name}")
         time.sleep(3)
         print(f'Welcome back, {p2name}!\nLets set up your ships now!')
-        print(f'\n\nBefore we begin here is a reference for what the coordinates will look like (row, column)\n')
+        print(f'\n\nBefore we begin here is a reference for what the coordinates will look like (row, column):\n')
         while p2lengths:
             p2board.help_player_visualize()
             p2ship = player2.set_ship_coordinates()
