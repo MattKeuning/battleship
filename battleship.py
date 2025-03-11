@@ -42,6 +42,27 @@ class Board:
             ["~"]*10,
         ]
     
+    def help_player_visualize(self):
+        visual = [
+            [(1,1), (1,2), (1,3), (1,4), (1,5), (1,6), (1,7), (1,8), (1,9), (1,10)],
+            [(2,1), (2,2), (2,3), (2,4), (2,5), (2,6), (2,7), (2,8), (2,9), (2,10)],
+            [(3,1), (3,2), (3,3), (3,4), (3,5), (3,6), (3,7), (3,8), (3,9), (3,10)],
+            [(4,1), (4,2), (4,3), (4,4), (4,5), (4,6), (4,7), (4,8), (4,9), (4,10)],
+            [(5,1), (5,2), (5,3), (5,4), (5,5), (5,6), (5,7), (5,8), (5,9), (5,10)],
+            [(6,1), (6,2), (6,3), (6,4), (6,5), (6,6), (6,7), (6,8), (6,9), (6,10)],
+            [(7,1), (7,2), (7,3), (7,4), (7,5), (7,6), (7,7), (7,8), (7,9), (7,10)],
+            [(8,1), (8,2), (8,3), (8,4), (8,5), (8,6), (8,7), (8,8), (8,9), (8,10)],
+            [(9,1), (9,2), (9,3), (9,4), (9,5), (9,6), (9,7), (9,8), (9,9), (9,10)],
+            [(10,1), (10,2), (10,3), (10,4), (10,5), (10,6), (10,7), (10,8), (10,9), (10,10)],
+            
+        ]
+        for i in range(len(visual)):
+            if i != 0:
+                print('\n')
+                for j in visual[i]:
+                    print(j, end='\t')
+        return '\n'
+    
     def show_ships_on_board(self):
         for i in range(len(self.show_ships)):
             if i != 0:
@@ -94,6 +115,8 @@ class Game:
         time.sleep(4)
         print(f"Okay, {p1name} now that {p2name} is gone lets get to work!")
         while p1lengths:
+            print(f'Before we begin here is a reference for what the coordinates will look like (row, column)')
+            p1board.help_player_visualize()
             p1ship = player1.set_ship_coordinates()
             h_or_v = input("Would you like your ship to be horizontal or verticle (h/v) ")
             length = int(input("What length would you like this ship to have (keep in mind you will set 4 ships: lengths 2-5) "))
@@ -119,6 +142,8 @@ class Game:
         time.sleep(3)
         print(f'Welcome back, {p2name}!\nLets set up your ships now!')
         while p2lengths:
+            print(f'Before we begin here is a reference for what the coordinates will look like (row, column)')
+            p2board.help_player_visualize()
             p2ship = player2.set_ship_coordinates()
             h_or_v = input("Would you like your ship to be horizontal or verticle (h/v) ")
             length = int(input("What length would you like this ship to have (keep in mind you will set 4 ships: lengths 2-5) "))
