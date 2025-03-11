@@ -91,7 +91,7 @@ class Game:
         p2board = Board()
         time.sleep(1)
         print(f"{p2name} please give me and {p1name} some privacy while we set up {p1name}\'s ships!")
-        time.sleep(2)
+        time.sleep(4)
         print(f"Okay, {p1name} now that {p2name} is gone lets get to work!")
         while p1lengths:
             p1ship = player1.set_ship_coordinates()
