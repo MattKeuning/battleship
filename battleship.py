@@ -135,7 +135,7 @@ class Game:
             p1lengths.remove(length)
         print(f'Perfect! Here is what your board now looks like:')
         print(p1board.show_ships_on_board())
-        time.sleep(3)
+        time.sleep(5)
         print(f'Now this will erase in 3!')
         time.sleep(1)
         print(f'2!')
@@ -164,7 +164,7 @@ class Game:
             p2lengths.remove(length)
         print(f'Perfect! Here is what your board now looks like:')
         print(p2board.show_ships_on_board())
-        time.sleep(3)
+        time.sleep(5)
         print(f'Now this will erase in 3!')
         time.sleep(1)
         print(f'2!')
@@ -186,7 +186,7 @@ class Game:
                 p2board.print_board()
                 row = int(input(f'{p1name} pick a row! ')) - 1
                 col = int(input(f'Also a column! ')) - 1
-                time.sleep(3)
+                time.sleep(1)
                 if p2board.shoot(row, col):
                     print("BOOM YOU\'VE GOT A HIT")
                 else:
@@ -197,7 +197,7 @@ class Game:
                 p1board.print_board()
                 row = int(input(f'{p2name} pick a row! ')) - 1
                 col = int(input(f'Also a column! ')) - 1
-                time.sleep(3)
+                time.sleep(1)
                 if p1board.shoot(row, col):
                     print("BOOM YOU\'VE GOT A HIT")
                 else:
