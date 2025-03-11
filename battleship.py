@@ -5,6 +5,7 @@ class Player:
 
     def __init__(self, player_name: str):
         self.player_name = player_name
+        self.ship_coords = list()
 
     def get_name(self):
         return self.player_name
@@ -14,9 +15,19 @@ class Player:
 
     def set_ship_coordinates(self):
         # Asking for rows and columns in 1 indexed notation to make it more intuitive
-        row = int(input("What row would you like the front/right of you ship to be on (1-10) "))
+        row = (input("What row would you like the front/right of you ship to be on (1-10) "))
+        while row not in ['1','2','3','4','5','6','7','8','9','10']:
+            row = input("It needs to be an integer between 1-10! ")
+        row = int(row)
+        while row > 10 or row < 1:
+            row = (input("It needs to be an integer between 1-10! "))
         row -= 1
-        col = int(input("What column would you like the front/right of your ship to be on (1-10) "))
+        col = (input("What column would you like the front/right of your ship to be on (1-10) "))
+        while col not in ['1','2','3','4','5','6','7','8','9','10']:
+            col = input("It needs to be an integer between 1-10! ")
+        col = int(col)
+        while col > 10 or col < 1:
+            col = (input("It needs to be an integer between 1-10! "))
         col -= 1
         return (row, col)
 
