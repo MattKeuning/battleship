@@ -29,6 +29,22 @@ class Player:
         while col > 10 or col < 1:
             col = (input("It needs to be an integer between 1-10! "))
         col -= 1
+        while (row, col) in self.ship_coords:
+            print('You actually already have a ship their. Please try again')
+            row = (input("\n\nWhat row would you like the front/right of you ship to be on (1-10) "))
+            while row not in ['1','2','3','4','5','6','7','8','9','10']:
+                row = input("It needs to be an integer between 1-10! ")
+            row = int(row)
+            while row > 10 or row < 1:
+                row = (input("It needs to be an integer between 1-10! "))
+            row -= 1
+            col = (input("What column would you like the front/right of your ship to be on (1-10) "))
+            while col not in ['1','2','3','4','5','6','7','8','9','10']:
+                col = input("It needs to be an integer between 1-10! ")
+            col = int(col)
+            while col > 10 or col < 1:
+                col = (input("It needs to be an integer between 1-10! "))
+            col -= 1
         return (row, col)
 
 class Board:
@@ -139,10 +155,12 @@ class Game:
                     p1board.show_ships[p1ship[0]+i][p1ship[1]] = 'S'
                     p1board.ships.append((p1ship[0]+i,p1ship[1]))
                     p1board.visual[p1ship[0]+i][p1ship[1]] = 'HHHHH'
+                    player1.ship_coords.append((p1ship[0]+i,p1ship[1]))
                 else:
                     p1board.show_ships[p1ship[0]][p1ship[1]-i] = 'S'
-                    p1board.ships.append((p1ship[0],p1ship[1]-i))
+                    p1board.ships.append((p1ship[0], p1ship[1]-i))
                     p1board.visual[p1ship[0]][p1ship[1]-i] = 'HHHHH'
+                    player1.ship_coords.append((p1ship[0], p1ship[1]-i))
             p1lengths.remove(length)
         print(f'Perfect! Here is what your board now looks like:')
         print(p1board.show_ships_on_board())
@@ -168,10 +186,12 @@ class Game:
                     p2board.show_ships[p2ship[0]+i][p2ship[1]] = 'S'
                     p2board.ships.append((p2ship[0]+i,p2ship[1]))
                     p2board.visual[p2ship[0]+i][p2ship[1]] = 'HHHHH'
+                    player2.ship_coords.append((p2ship[0]+i, p2ship[1]))
                 else:
                     p2board.show_ships[p2ship[0]][p2ship[1]-i] = 'S'
                     p2board.ships.append((p2ship[0],p2ship[1]-i))
                     p2board.visual[p2ship[0]][p2ship[1]-i] = 'HHHHH'
+                    player2.ship_coords.append((p2ship[0]+i, p2ship[1]))
             p2lengths.remove(length)
         print(f'Perfect! Here is what your board now looks like:')
         print(p2board.show_ships_on_board())
